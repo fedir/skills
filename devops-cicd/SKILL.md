@@ -1,6 +1,6 @@
 ---
 name: devops-cicd
-description: Design and review CI/CD pipelines, containerization, and infrastructure-as-code. Use when the user mentions CI, CD, GitHub Actions, GitLab CI, a pipeline, Dockerfile, container image, Terraform, or deploying/releasing software.
+description: Design and review CI/CD pipelines, containerization, and infrastructure-as-code. Use when the user mentions CI, CD, GitHub Actions, GitLab CI, a build pipeline, Dockerfile, container image, Terraform, or deploying/releasing software. Focuses on fast, reproducible, secure delivery with easy rollback — tool-agnostic patterns, not one vendor's syntax.
 license: MIT
 metadata:
   short-description: CI/CD pipelines, Docker images, IaC, and release strategy
@@ -10,7 +10,8 @@ metadata:
 # DevOps / CI-CD
 
 You build and review delivery pipelines that are fast, reproducible, and safe. Automate the path
-from commit to production; make failures loud and rollbacks easy.
+from commit to production; make failures loud and rollbacks easy. The judgment you add: fail fast
+and cheap, handle secrets and privilege correctly, and never ship something you can't roll back.
 
 ## When to use
 
@@ -18,41 +19,42 @@ from commit to production; make failures loud and rollbacks easy.
 - "Write/review a Dockerfile", containerization, image size/security
 - Terraform / infrastructure-as-code review, deploy/release strategy
 
-## Pipeline design
+## Core stages
 
-Standard stages, fail fast and cheap first:
+Fail fast and cheap first:
 
 ```
 lint/format → unit tests → build → security scan → integration tests → deploy
 ```
 
-- **Cache dependencies and build layers** to keep runs fast.
-- **Pin versions** (actions, base images, tool versions) for reproducibility.
-- **Secrets** come from the platform's secret store — never hardcoded, never echoed to logs.
-- **Fail loudly**; make required checks block merges. Keep pipelines idempotent.
-- **Least-privilege credentials** for deploy steps; prefer OIDC over long-lived keys.
+Details, caching, and a worked example: `references/pipelines.md`.
 
-## Docker best practices
+## Principles
 
-- Small base images (slim/alpine/distroless where practical); **multi-stage builds** to drop build
-  deps from the final image.
-- Run as a **non-root** user. Don't bake secrets into layers. Use `.dockerignore`.
-- Pin base image tags/digests; order layers so cache-friendly steps come first.
-- One concern per image; healthcheck where it helps.
+- **Reproducible** — pin versions (actions, base images, tools); same input → same output. No
+  "works because of what's cached".
+- **Fast feedback** — cheap checks first; cache dependencies and layers; parallelize independent
+  jobs.
+- **Secure by default** — secrets from the platform's store, never hardcoded or echoed;
+  least-privilege deploy credentials (prefer OIDC over long-lived keys); scan deps and images.
+- **Loud failure, easy rollback** — required checks block merges; every deploy has a known,
+  practiced rollback.
+- **Idempotent** — re-running a job or apply doesn't corrupt state.
 
-## Infrastructure-as-code review points
+## Focus areas
 
-- State managed remotely and locked; changes go through `plan` before `apply`.
-- No secrets or credentials in code or state files.
-- Modules reused over copy-paste; resources tagged; least-privilege IAM.
-- Changes are reversible or have a documented rollback.
+- **Pipelines** — stages, caching, secrets, matrix builds, required checks: `references/pipelines.md`.
+- **Containers** — small, non-root, multi-stage, pinned, scanned images: `references/containers.md`.
+- **IaC & releases** — Terraform review, state/rollback, and rollout strategies (rolling/blue-green/
+  canary): `references/iac-and-release.md`.
 
-## Release strategy
+## References
 
-Choose per risk: rolling, blue/green, or canary. Define health checks, automatic rollback
-triggers, and how to verify a release succeeded. Keep deploys boring and repeatable.
+- `references/pipelines.md` — pipeline design, caching, secrets, and an annotated example
+- `references/containers.md` — Dockerfile best practices and image security
+- `references/iac-and-release.md` — infrastructure-as-code review and release strategies
 
 ## Done when
 
 The pipeline is reproducible, secrets are handled safely, failures block appropriately, images are
-minimal and non-root, and rollback is defined.
+minimal and non-root, and rollback is defined and known to work.

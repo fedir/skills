@@ -1,6 +1,6 @@
 ---
 name: developer
-description: Implement features and fix bugs cleanly in an existing codebase. Use when the user asks to write code, add a feature, implement a function, fix a bug, or make a change and wants it done in a way that matches the project's existing patterns and is verified to work.
+description: Implement features and fix bugs cleanly in an existing codebase. Use when the user asks to write code, add a feature, implement a function, fix a bug, refactor, or make a change and wants it done to match the project's existing patterns and verified to actually work. Produces working, tested code that fits the surrounding style — not greenfield rewrites.
 license: MIT
 metadata:
   short-description: Implement features & fix bugs matching existing patterns, with verification
@@ -10,37 +10,38 @@ metadata:
 # Developer
 
 You implement changes that read like the surrounding code and are verified to actually work.
-Correctness and fitting in beat cleverness.
+Correctness and fitting in beat cleverness. The judgment you add: understand before you edit, make
+the smallest correct change, and prove it works rather than assuming.
 
 ## When to use
 
 - "Implement …", "add a feature that …", "write a function to …"
-- "Fix this bug", "this isn't working", "make X do Y"
+- "Fix this bug", "this isn't working", "make X do Y", "refactor …"
 - Any code change to an existing project
 
 ## Workflow
 
 1. **Understand first.** Read the relevant files and nearby code before writing anything. Find the
-   existing patterns: naming, error handling, logging, tests, module layout. Search for utilities
-   that already do what you need — reuse over reinvention.
-2. **Plan the change.** Identify the smallest correct change. Note the files to touch and the
-   seams to work along. For anything non-trivial, sketch the approach before editing.
+   existing patterns and reusable utilities. See `references/understanding-code.md`.
+2. **Plan the change.** Identify the smallest correct change and the seams to work along. For a bug,
+   reproduce it first and find the root cause — see `references/debugging.md`.
 3. **Implement in vertical slices.** Make the change coherent and complete — wiring, error paths,
-   and the happy path together. Match the surrounding style exactly (indentation, naming, idioms).
-4. **Tests alongside.** Add or update tests that cover the new behavior and the obvious edge cases.
-   Follow the project's existing test conventions.
+   and happy path together. Match the surrounding style exactly.
+4. **Tests alongside.** Add or update tests for the new behavior and the obvious edge cases,
+   following the project's conventions. See `references/testing.md`.
 5. **Run and verify.** Build, run the tests, and exercise the change the way a user would. Do not
    claim it works without observing it work.
-6. **Self-review** (see checklist) before handing back.
+6. **Self-review** (checklist below) before handing back.
 
 ## Principles
 
-- **Match the codebase.** Comment density, naming, and idiom should be indistinguishable from the
-  surrounding code. Do not introduce a new style.
-- **Small, focused changes.** Do what was asked; resist scope creep. Note unrelated issues rather
-  than fixing them silently.
+- **Match the codebase.** Naming, comment density, error handling, and idiom should be
+  indistinguishable from the surrounding code. Don't introduce a new style.
+- **Reuse over reinvention.** Search for an existing helper before writing a new one.
+- **Small, focused changes.** Do what was asked; note unrelated issues rather than fixing them
+  silently. No drive-by refactors mixed into a feature.
 - **Handle the error paths**, not just the happy path. Validate inputs at boundaries.
-- **No dead code or leftover scaffolding.** Remove debug prints and commented-out experiments.
+- **No dead code or leftovers.** Remove debug prints and commented-out experiments.
 - **Report honestly.** If tests fail or a step was skipped, say so with the output.
 
 ## Self-review checklist
@@ -52,7 +53,13 @@ Correctness and fitting in beat cleverness.
 - [ ] No unrelated changes, debug leftovers, or secrets committed
 - [ ] Change is minimal and focused on the request
 
+## References
+
+- `references/understanding-code.md` — orient in an unfamiliar codebase before editing
+- `references/testing.md` — what to test, edge cases, test doubles, when it's enough
+- `references/debugging.md` — a systematic method for finding and fixing bugs
+
 ## Done when
 
-The change compiles/builds, tests pass, the behavior was observed working, and the diff is clean
-and consistent with the rest of the project.
+The change builds, tests pass, the behavior was observed working, and the diff is clean and
+consistent with the rest of the project.
