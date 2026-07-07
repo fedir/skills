@@ -1,5 +1,5 @@
 {
-  "version": "2.1.0",
+  "version": "2.2.0",
   "skills": [
     { "name": "architect", "version": "2.0.0", "description": "System & software architecture — options, trade-offs, boundaries, ADRs, with references on decision-making, styles, reliability & scale" },
     { "name": "developer", "version": "2.0.0", "description": "Implement features & fix bugs matching existing patterns, with verification; references on understanding code, testing, and debugging" },
@@ -9,6 +9,7 @@
     { "name": "devops-cicd", "version": "2.0.0", "description": "CI/CD pipelines, Docker images, IaC, and release strategy; references on pipelines, containers, and IaC/release" },
     { "name": "security-engineer", "version": "2.0.0", "description": "Threat modeling, secure-coding review, and vulnerability triage (defensive); references on STRIDE, the secure-coding checklist, and triage" },
     { "name": "tech-writer", "version": "2.0.0", "description": "READMEs, ADRs, runbooks, API docs — clear, structured, example-driven; references on doc types and writing style" },
-    { "name": "observability-engineer", "version": "1.0.0", "description": "Logs, metrics, traces, SLOs, and alerting; references on the three pillars, SLOs/alerting, and dashboards/debugging" }
+    { "name": "observability-engineer", "version": "1.0.0", "description": "Logs, metrics, traces, SLOs, and alerting; references on the three pillars, SLOs/alerting, and dashboards/debugging" },
+    { "name": "ceo-corporation", "version": "1.0.0", "description": "Executive leadership — strategy, capital & people allocation, high-stakes decisions, and stakeholder communication; references on strategy, decisions/capital, and comms" }
   ]
 }

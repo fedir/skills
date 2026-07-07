@@ -17,6 +17,7 @@ that works **unchanged in both [Claude Code](https://code.claude.com/docs/en/ski
 | `security-engineer` | Threat modeling, secure-coding review, vuln triage (defensive) |
 | `tech-writer` | READMEs, ADRs, runbooks, API docs — clear and example-driven |
 | `observability-engineer` | Logs, metrics, traces, SLOs, and symptom-based alerting |
+| `ceo-corporation` | Executive leadership — strategy, capital/people allocation, decisions, comms |
 
 ## Compatibility
 
