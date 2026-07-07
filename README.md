@@ -55,8 +55,15 @@ Use the `skill-creator` skill, or by hand:
 1. Create `<skill-name>/SKILL.md` (folder name **must** equal the `name` field).
 2. Frontmatter needs `name` and `description`; keep the body tool-agnostic; don't add
    `compatibility:`.
-3. Add an entry to [`skills.json`](./skills.json).
-4. Run `./install.sh` and confirm the skill appears in your agent.
+3. Validate it — the `skill-creator` skill bundles a reusable checker:
+   ```sh
+   skill-creator/scripts/validate_skill.sh <skill-dir>
+   ```
+4. Add an entry to [`skills.json`](./skills.json).
+5. Run `./install.sh` and confirm the skill appears in your agent.
+
+The `skill-creator` skill goes deep on this — description engineering, progressive disclosure,
+bundled resources, and testing (see its `references/`).
 
 ## License
 

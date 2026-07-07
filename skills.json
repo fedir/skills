@@ -1,10 +1,10 @@
 {
-  "version": "1.0.0",
+  "version": "1.1.0",
   "skills": [
     { "name": "architect", "version": "1.0.0", "description": "System & software architecture — options, trade-offs, boundaries, ADRs" },
     { "name": "developer", "version": "1.0.0", "description": "Implement features & fix bugs matching existing patterns, with verification" },
     { "name": "k8s-administrator", "version": "1.0.0", "description": "Kubernetes operations, debugging, rollouts, and workload hygiene" },
-    { "name": "skill-creator", "version": "1.0.0", "description": "Author portable SKILL.md files for Claude Code, opencode, and other agents" },
+    { "name": "skill-creator", "version": "2.0.0", "description": "Author high-quality, portable SKILL.md skills — description engineering, progressive disclosure, bundled validator, and testing" },
     { "name": "code-reviewer", "version": "1.0.0", "description": "Diff/PR review — bugs, security, reuse, style, ranked by severity" },
     { "name": "devops-cicd", "version": "1.0.0", "description": "CI/CD pipelines, Docker images, IaC, and release strategy" },
     { "name": "security-engineer", "version": "1.0.0", "description": "Threat modeling, secure-coding review, and vulnerability triage (defensive)" },
