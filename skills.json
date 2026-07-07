@@ -1,5 +1,5 @@
 {
-  "version": "2.3.0",
+  "version": "2.4.0",
   "skills": [
     { "name": "architect", "version": "2.0.0", "description": "System & software architecture — options, trade-offs, boundaries, ADRs, with references on decision-making, styles, reliability & scale" },
     { "name": "developer", "version": "2.0.0", "description": "Implement features & fix bugs matching existing patterns, with verification; references on understanding code, testing, and debugging" },
@@ -11,6 +11,7 @@
     { "name": "tech-writer", "version": "2.0.0", "description": "READMEs, ADRs, runbooks, API docs — clear, structured, example-driven; references on doc types and writing style" },
     { "name": "observability-engineer", "version": "1.0.0", "description": "Logs, metrics, traces, SLOs, and alerting; references on the three pillars, SLOs/alerting, and dashboards/debugging" },
     { "name": "ceo-corporation", "version": "1.0.0", "description": "Executive leadership — strategy, capital & people allocation, high-stakes decisions, and stakeholder communication; references on strategy, decisions/capital, and comms" },
-    { "name": "ai-agent", "version": "1.0.0", "description": "Design & build LLM agents — the agent decision, tool-use loop, context management, model choice, and evals; references incl. a Claude quick-start" }
+    { "name": "ai-agent", "version": "1.0.0", "description": "Design & build LLM agents — the agent decision, tool-use loop, context management, model choice, and evals; references incl. a Claude quick-start" },
+    { "name": "mcp-server", "version": "1.0.0", "description": "Build Model Context Protocol servers — tools, resources, prompts, transports, and security; references on concepts, building with the SDK, and design/security" }
   ]
 }

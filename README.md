@@ -19,6 +19,7 @@ that works **unchanged in both [Claude Code](https://code.claude.com/docs/en/ski
 | `observability-engineer` | Logs, metrics, traces, SLOs, and symptom-based alerting |
 | `ceo-corporation` | Executive leadership — strategy, capital/people allocation, decisions, comms |
 | `ai-agent` | Design & build LLM agents — tool use, orchestration, context, evals |
+| `mcp-server` | Build MCP servers — tools, resources, prompts, transports, security |
 
 ## Compatibility
 
