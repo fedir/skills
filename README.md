@@ -16,6 +16,7 @@ that works **unchanged in both [Claude Code](https://code.claude.com/docs/en/ski
 | `devops-cicd` | CI/CD pipelines, Docker images, IaC, release strategy |
 | `security-engineer` | Threat modeling, secure-coding review, vuln triage (defensive) |
 | `tech-writer` | READMEs, ADRs, runbooks, API docs — clear and example-driven |
+| `observability-engineer` | Logs, metrics, traces, SLOs, and symptom-based alerting |
 
 ## Compatibility
 
